@@ -12,6 +12,9 @@ function mission () {
     const left = document.getElementById("left")
     const right = document.getElementById("right")
     const rocket = document.getElementById("rocket")
+    rocket.style.bottom = "0px"
+    rocket.style.left = "0px"
+    rocket.style.position = "absolute"
 
     takeoffButton.addEventListener("click", event => {
         let answer = window.confirm("Confirm that the shuttle is ready for takeoff.")
@@ -39,9 +42,28 @@ function mission () {
       });
 
     up.addEventListener("click", event => {
-        
-    
+        let movement = parseInt(rocket.style.bottom) + 10 + "px"
+        rocket.style.bottom = movement
+        let miles = parseInt(spaceShuttleHeight.innerHTML) + 10000
+        spaceShuttleHeight.innerHTML = miles
     })
+
+    down.addEventListener("click", event => {
+      let movement = parseInt(rocket.style.bottom) - 10 + "px"
+      rocket.style.bottom = movement
+      let miles = parseInt(spaceShuttleHeight.innerHTML) - 10000
+      spaceShuttleHeight.innerHTML = miles
+  })
+
+    left.addEventListener("click", event => {
+     let movement = parseInt(rocket.style.left) + 10 + "px"
+     rocket.style.left = movement
+  })
+
+    right.addEventListener("click", event => {
+     let movement = parseInt(rocket.style.left) - 10 + "px"
+      rocket.style.left = movement
+  })
 
 }
 
